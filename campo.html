@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cv-toolbar {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .cv-toolbar a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .cv-toolbar a:hover {
+            text-decoration: underline;
+        }
+        /* ========== CSS TEMÁTICA FOOTBALL PARA CV HEADER ========== */
+/* Estilo campo de juego + camiseta + detalles tácticos */
+
+.cv-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: linear-gradient(135deg, #0a2e1c 0%, #1a4d2a 100%);
+  padding: 2rem 2rem;
+  border-radius: 24px 24px 24px 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+  border-bottom: 4px solid #ffd700;
+}
+
+/* Líneas de campo de fútbol en el fondo */
+.cv-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(90deg, 
+      rgba(255, 255, 255, 0.05) 0px, 
+      rgba(255, 255, 255, 0.05) 2px, 
+      transparent 2px, 
+      transparent 40px),
+    repeating-linear-gradient(0deg, 
+      rgba(255, 255, 255, 0.03) 0px, 
+      rgba(255, 255, 255, 0.03) 1px, 
+      transparent 1px, 
+      transparent 30px);
+  pointer-events: none;
+}
+
+/* Círculo central simbólico (como medio campo) */
+.cv-header::after {
+  content: "⚽";
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  font-size: 120px;
+  opacity: 0.08;
+  pointer-events: none;
+  font-family: monospace;
+}
+
+/* === FOTO (estilo escudo/camiseta) === */
+.cv-header__photo {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #ffd700;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), inset 0 0 0 3px rgba(255, 215, 0, 0.3);
+  background: #0e3a22;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cv-header__photo:hover {
+  transform: scale(1.03) rotate(2deg);
+  box-shadow: 0 10px 28px black, 0 0 0 3px #ffed4a;
+}
+
+/* Placeholder si no hay foto (estilo dorsal) */
+.cv-header__photo-placeholder {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #2b5e3b, #0a2f1a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  border: 4px solid #ffd700;
+  box-shadow: 0 8px 20px black;
+  color: #ffd700;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.cv-header__photo-placeholder:hover {
+  background: radial-gradient(circle at 30% 30%, #3c7849, #144d24);
+  transform: scale(1.02);
+  color: white;
+}
+
+/* === Bloque de información (como dorsal + nombre en camiseta) === */
+.cv-header__info {
+  flex: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Nombre estilo "futbolista estrella" */
+.cv-header__name {
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #ffffff, #ffea9e);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: none;
+  margin-bottom: 0.25rem;
+  display: inline-block;
+  border-left: 5px solid #ffd700;
+  padding-left: 1rem;
+  font-family: 'Segoe UI', 'Poppins', 'Impact', system-ui;
+  text-transform: uppercase;
+}
+
+/* Profesión/Título (como "Delantero Centro" o "Media Punta") */
+.cv-header__title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffde8a;
+  background: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  padding: 0.2rem 1rem;
+  border-radius: 40px;
+  backdrop-filter: blur(4px);
+  margin: 0.6rem 0 0.8rem 0;
+  letter-spacing: 1px;
+  font-family: monospace;
+  box-shadow: inset 0 1px 2px rgba(255,255,200,0.2), 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Contactos estilo "estadísticas / tarjeta del jugador" */
+.cv-header__contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.8rem;
+}
+
+.cv-header__contact span {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(5px);
+  padding: 0.4rem 1rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #f2f2f2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  border-left: 3px solid #ffd700;
+  font-family: monospace;
+  letter-spacing: 0.5px;
+}
+
+.cv-header__contact span:hover {
+  background: #ffd700;
+  color: #0a2e1c;
+  transform: translateY(-3px);
+  border-left-color: #fff;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+}
+
+/* Ajustes responsive tácticos (fútbol base) */
+@media (max-width: 750px) {
+  .cv-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.8rem;
+  }
+  
+  .cv-header__name {
+    font-size: 2rem;
+    border-left: none;
+    border-bottom: 3px solid #ffd700;
+    padding-left: 0;
+    padding-bottom: 0.3rem;
+  }
+  
+  .cv-header__contact {
+    justify-content: center;
+  }
+  
+  .cv-header__photo,
+  .cv-header__photo-placeholder {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cv-header__contact span {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.8rem;
+  }
+  
+  .cv-header__title {
+    font-size: 1rem;
+  }
+}
+    </style>
+</head>
+<body>
+    <nav class="cv-toolbar">
+    <a href="{% url 'curriculum_cv_pdf' slug=profile.slug %}" target="_blank">⬇ PDF</a>
+    {% if user.is_authenticated and user == profile.user %}
+    <a href="{% url 'curriculum:profile_list' %}">← Perfiles</a>
+    {% endif %}
+  </nav>
+  <header class="cv-header">
+      {% with pi=profile.cv.personal_info %}
+      {% if pi.foto %}
+      <img src="{{ pi.foto.url }}" alt="{{ pi.nombre_completo }}" class="cv-header__photo">
+      {% else %}
+      <div class="cv-header__photo-placeholder">👤</div>
+      {% endif %}
+      <div class="cv-header__info">
+        <h1 class="cv-header__name">{{ pi.nombre_completo|default:"—" }}</h1>
+        {% if profile.mostrar_perfil_profesional and profile.cv.professional_profile %}
+        <p class="cv-header__title">{{ profile.cv.professional_profile.profesion }}</p>
+        {% endif %}
+        <div class="cv-header__contact">
+          {% if pi.email_profesional1 %}<span>✉ {{ pi.email_profesional1 }}</span>{% endif %}
+          {% if pi.telefono1 %}<span>☎ {{ pi.telefono1 }}</span>{% endif %}
+          {% if pi.ciudad %}<span>📍 {{ pi.ciudad }}{% if pi.pais %}, {{ pi.pais }}{% endif %}</span>{% endif %}
+          {% if pi.disponibilidad %}<span>⏱ {{ pi.get_disponibilidad_display }}</span>{% endif %}
+          {% if pi.carnet_conducir %}<span>🚗 Carnet de conducir</span>{% endif %}
+        </div>
+      </div>
+      {% endwith %}
+    </header>
+
+</body>
+</html>

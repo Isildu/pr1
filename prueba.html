@@ -1,0 +1,26 @@
+<div id="app">
+  <!-- Pantalla 1 -->
+  <div id="pantalla1" class="pantalla">
+    <button onclick="cambiarPantalla('pantalla2')">
+      Ir a la pantalla 2
+    </button>
+  </div>
+  
+  <!-- Pantalla 2 (oculta al inicio) -->
+  <div id="pantalla2" class="pantalla" style="display: none;">
+    <h1 style="color: red;">¡Contenido totalmente diferente!</h1>
+    <p>Aquí no hay nada que ver con la pantalla 1</p>
+    <button onclick="cambiarPantalla('pantalla1')">Volver</button>
+  </div>
+</div>
+
+<script>
+function cambiarPantalla(pantallaId) {
+  // Ocultar todas
+  document.querySelectorAll('.pantalla').forEach(p => {
+    p.style.display = 'none';
+  });
+  // Mostrar la seleccionada
+  document.getElementById(pantallaId).style.display = 'block';
+}
+</script>
