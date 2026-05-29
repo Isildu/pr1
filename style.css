@@ -1,38 +1,51 @@
 /* ========== TOOLBAR ========== */
 .cv-toolbar {
-    background-color: #f8f9fa;
-    padding: 10px 20px;
-    border-bottom: 1px solid #dee2e6;
+    background-color: #0a2e1c;
+    padding: 12px 24px;
+    border-bottom: 2px solid #ffd700;
     margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .cv-toolbar a {
-    margin-right: 15px;
     text-decoration: none;
-    color: #007bff;
-    font-weight: 500;
+    color: #ffd700;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
 }
 
 .cv-toolbar a:hover {
-    text-decoration: underline;
+    background-color: #ffd700;
+    color: #0a2e1c;
+    transform: translateY(-2px);
 }
 
-/* ========== CSS TEMÁTICA FOOTBALL PARA CV ========== */
-/* Estilo general */
+/* ========== CONTENEDOR PRINCIPAL ========== */
 body {
     margin: 0;
     padding: 20px;
-    background: #1a1a1a;
-    font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
+    background: #0a0f0a;
+    font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, sans-serif;
 }
 
-.cv-card {
-    max-width: 900px;
+.cv-container {
+    max-width: 1300px;
     margin: 0 auto;
     background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     overflow: hidden;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 0;
 }
 
 /* ========== HEADER (estilo futbolístico) ========== */
@@ -41,12 +54,12 @@ body {
     align-items: center;
     gap: 2rem;
     background: linear-gradient(135deg, #0a2e1c 0%, #1a4d2a 100%);
-    padding: 2rem 2rem;
-    border-radius: 16px 16px 24px 8px;
+    padding: 2rem;
     position: relative;
     overflow: hidden;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     border-bottom: 4px solid #ffd700;
+    grid-column: 1 / -1;
 }
 
 /* Líneas de campo de fútbol en el fondo */
@@ -71,7 +84,7 @@ body {
     pointer-events: none;
 }
 
-/* Círculo central simbólico (como medio campo) */
+/* Círculo central simbólico */
 .cv-header::after {
     content: "⚽";
     position: absolute;
@@ -82,14 +95,14 @@ body {
     pointer-events: none;
 }
 
-/* === FOTO (estilo escudo/camiseta) === */
+/* Foto estilo escudo */
 .cv-header__photo {
     width: 130px;
     height: 130px;
     object-fit: cover;
     border-radius: 50%;
     border: 4px solid #ffd700;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), inset 0 0 0 3px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     background: #0e3a22;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     flex-shrink: 0;
@@ -100,7 +113,7 @@ body {
     box-shadow: 0 10px 28px black, 0 0 0 3px #ffed4a;
 }
 
-/* Placeholder si no hay foto (estilo dorsal) */
+/* Placeholder si no hay foto */
 .cv-header__photo-placeholder {
     width: 130px;
     height: 130px;
@@ -124,7 +137,6 @@ body {
     color: white;
 }
 
-/* === Bloque de información === */
 .cv-header__info {
     flex: 1;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
@@ -132,9 +144,8 @@ body {
     z-index: 1;
 }
 
-/* Nombre estilo "futbolista estrella" */
 .cv-header__name {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: 900;
     letter-spacing: -0.5px;
     background: linear-gradient(135deg, #ffffff, #ffea9e);
@@ -149,9 +160,8 @@ body {
     text-transform: uppercase;
 }
 
-/* Profesión/Título */
 .cv-header__title {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: #ffde8a;
     background: rgba(0, 0, 0, 0.5);
@@ -161,11 +171,9 @@ body {
     backdrop-filter: blur(4px);
     margin: 0.6rem 0 0.8rem 0;
     letter-spacing: 1px;
-    font-family: monospace;
     box-shadow: inset 0 1px 2px rgba(255, 255, 200, 0.2), 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Contactos estilo "estadísticas / tarjeta del jugador" */
 .cv-header__contact {
     display: flex;
     flex-wrap: wrap;
@@ -186,7 +194,6 @@ body {
     gap: 8px;
     transition: all 0.2s ease;
     border-left: 3px solid #ffd700;
-    letter-spacing: 0.5px;
 }
 
 .cv-header__contact-item:hover {
@@ -194,33 +201,388 @@ body {
     color: #0a2e1c;
     transform: translateY(-3px);
     border-left-color: #fff;
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* ========== SECCIÓN INFORMACIÓN ========== */
-.cv-info {
-    padding: 2rem;
+/* ========== SIDEBAR (LADO IZQUIERDO) ========== */
+.cv-sidebar {
+    background: #f5f5f0;
+    padding: 2rem 1.5rem;
+    border-right: 1px solid #e0dcc8;
 }
 
-.cv-info__section {
+.sidebar-section {
     margin-bottom: 2rem;
 }
 
-.cv-info__title {
+.sidebar-section__title {
     font-size: 1.3rem;
     font-weight: 700;
     color: #0a2e1c;
     border-bottom: 3px solid #ffd700;
-    padding-bottom: 0.4rem;
+    padding-bottom: 0.5rem;
     margin-bottom: 1rem;
+    display: inline-block;
+    letter-spacing: -0.3px;
+}
+
+/* Barras de habilidades */
+.skill-bar-item {
+    margin-bottom: 1rem;
+}
+
+.skill-bar-item__name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #1a3a2a;
+    margin-bottom: 0.3rem;
+}
+
+.skill-bar {
+    background-color: #ddd8c0;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 10px;
+}
+
+.skill-bar__fill {
+    background: linear-gradient(90deg, #ffd700, #ffb347);
+    height: 100%;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+/* Tags de soft skills */
+.skill-tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag-sm {
+    background: #0a2e1c;
+    color: #ffd700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.skill-tag-sm:hover {
+    background: #ffd700;
+    color: #0a2e1c;
+    transform: scale(1.05);
+}
+
+/* Idiomas */
+.lang-item-sidebar {
+    margin-bottom: 1rem;
+}
+
+.lang-item-sidebar__name {
+    font-weight: 700;
+    color: #1a3a2a;
+    font-size: 0.95rem;
+}
+
+.lang-item-sidebar__level {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.2rem;
+}
+
+/* Redes sociales */
+.social-item {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-item span {
+    background: #0a2e1c;
+    color: #ffd700;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.social-item a {
+    text-decoration: none;
+    color: #2c5a3a;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.social-item a:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}
+
+/* Intereses */
+.interest-tag {
+    display: inline-block;
+    background: white;
+    border: 1px solid #ffd700;
+    color: #0a2e1c;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin: 0.2rem;
+    transition: all 0.2s;
+}
+
+.interest-tag:hover {
+    background: #ffd700;
+    transform: translateY(-2px);
+}
+
+/* ========== MAIN CONTENT (LADO DERECHO) ========== */
+.cv-main {
+    padding: 2rem;
+    background: white;
+}
+
+.main-section {
+    margin-bottom: 2.5rem;
+}
+
+.main-section__title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0a2e1c;
+    border-left: 5px solid #ffd700;
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+/* Entry (experiencia, educación) */
+.entry {
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.entry:last-child {
+    border-bottom: none;
+}
+
+.entry__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.entry__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a3a2a;
+}
+
+.entry__company {
+    font-size: 0.9rem;
+    color: #ffb347;
+    font-weight: 600;
+    margin-top: 0.2rem;
+}
+
+.entry__period {
+    background: #0a2e1c;
+    color: #ffd700;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.entry__body {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+.entry__logros {
+    margin-top: 0.8rem;
+    padding-left: 1.2rem;
+}
+
+.entry__logros li {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 0.3rem;
+}
+
+/* Grid de formación complementaria */
+.training-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.training-card {
+    background: #f9f9f5;
+    border-radius: 12px;
+    padding: 1rem;
+    border-left: 4px solid #ffd700;
+    transition: all 0.2s;
+}
+
+.training-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.training-card__tipo {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #ffb347;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.training-card__nombre {
+    font-weight: 700;
+    color: #1a3a2a;
+    margin: 0.3rem 0;
+}
+
+.training-card__entidad {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Grid de proyectos */
+.proj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+}
+
+.proj-card {
+    background: #f9f9f5;
+    border-radius: 12px;
+    padding: 1.2rem;
+    border: 1px solid #e0dcc8;
+    transition: all 0.3s;
+}
+
+.proj-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    border-color: #ffd700;
+}
+
+.proj-card__name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0a2e1c;
+    margin-bottom: 0.5rem;
+}
+
+.proj-card__tech {
+    font-size: 0.8rem;
+    color: #ffb347;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.proj-card__desc {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+}
+
+.proj-card__link {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffd700;
+    background: #0a2e1c;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.proj-card__link:hover {
+    background: #ffd700;
+    color: #0a2e1c;
+}
+
+/* Logros y reconocimientos */
+.achievement-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    padding: 0.8rem;
+    background: #f9f9f5;
+    border-radius: 12px;
+    transition: all 0.2s;
+}
+
+.achievement-item:hover {
+    background: #fff8e7;
+    transform: translateX(5px);
+}
+
+.achievement-icon {
+    font-size: 2rem;
+    min-width: 50px;
+    text-align: center;
+}
+
+.achievement-content__title {
+    font-weight: 700;
+    color: #0a2e1c;
+    font-size: 1rem;
+}
+
+.achievement-content__meta {
+    font-size: 0.7rem;
+    color: #ffb347;
+    margin-top: 0.2rem;
+}
+
+/* Sección Información adicional (arriba) */
+.cv-info {
+    grid-column: 1 / -1;
+    padding: 1.5rem 2rem;
+    background: #fffdf5;
+    border-bottom: 1px solid #e0dcc8;
+}
+
+.cv-info__section {
+    margin-bottom: 0;
+}
+
+.cv-info__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0a2e1c;
+    border-bottom: 2px solid #ffd700;
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.8rem;
     display: inline-block;
 }
 
 .cv-info__item {
-    padding: 0.6rem 0;
+    padding: 0.4rem 0;
     border-bottom: 1px solid #e9ecef;
     color: #333;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .badge {
@@ -233,27 +595,126 @@ body {
     font-size: 0.8rem;
 }
 
-/* ========== RESPONSIVE ========== */
-@media (max-width: 750px) {
-    .cv-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-        padding: 1.8rem;
-    }
+/* Perfil profesional */
+.cv-profesional_info {
+    grid-column: 1 / -1;
+    padding: 1.5rem 2rem;
+    background: white;
+    border-bottom: 1px solid #e0dcc8;
+}
 
+.cv-profesional_info__title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0a2e1c;
+    border-left: 5px solid #ffd700;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cv-profesional_info__item {
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.cv-profesional_info__item strong {
+    color: #0a2e1c;
+    min-width: 140px;
+    display: inline-block;
+}
+/* ========== ESTILOS PARA EL JS ========== */
+
+/* Animación de entrada al hacer scroll */
+.entry, .training-card, .proj-card, .achievement-item {
+    transition: opacity 0.5s ease, transform 0.5s ease !important;
+}
+
+/* Toast notification */
+.cv-toast {
+    font-family: 'Segoe UI', 'Poppins', sans-serif;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Mejora en filtros de proyectos */
+.filter-btn {
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(0.95);
+}
+
+/* Efecto de clic en tags */
+.skill-tag-sm, .interest-tag {
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+/* Tooltips personalizados */
+.custom-tooltip {
+    animation: fadeInUp 0.2s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Mejora en la impresión */
+@media print {
+    .cv-toolbar, .cv-toast, .filter-btn, .custom-tooltip {
+        display: none !important;
+    }
+    
+    .cv-container {
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        background: white;
+        padding: 0;
+    }
+    
+    .entry, .training-card, .proj-card {
+        break-inside: avoid;
+    }
+}
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+    .cv-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .cv-sidebar {
+        border-right: none;
+        border-top: 1px solid #e0dcc8;
+    }
+    
     .cv-header__name {
         font-size: 2rem;
-        border-left: none;
-        border-bottom: 3px solid #ffd700;
-        padding-left: 0;
-        padding-bottom: 0.3rem;
     }
-
-    .cv-header__contact {
-        justify-content: center;
-    }
-
+    
     .cv-header__photo,
     .cv-header__photo-placeholder {
         width: 100px;
@@ -261,13 +722,93 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 750px) {
+    body {
+        padding: 10px;
+    }
+    
+    .cv-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .cv-header__name {
+        font-size: 1.6rem;
+        border-left: none;
+        border-bottom: 3px solid #ffd700;
+        padding-left: 0;
+        padding-bottom: 0.3rem;
+    }
+    
+    .cv-header__contact {
+        justify-content: center;
+    }
+    
+    .cv-header__title {
+        font-size: 0.9rem;
+    }
+    
     .cv-header__contact-item {
         font-size: 0.7rem;
-        padding: 0.3rem 0.8rem;
+        padding: 0.3rem 0.7rem;
     }
+    
+    .cv-main,
+    .cv-sidebar,
+    .cv-info,
+    .cv-profesional_info {
+        padding: 1.2rem;
+    }
+    
+    .main-section__title {
+        font-size: 1.3rem;
+    }
+    
+    .entry__header {
+        flex-direction: column;
+    }
+    
+    .entry__period {
+        align-self: flex-start;
+    }
+    
+    .training-grid,
+    .proj-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cv-profesional_info__item strong {
+        display: block;
+        margin-bottom: 0.3rem;
+    }
+}
 
-    .cv-header__title {
-        font-size: 1rem;
+@media (max-width: 480px) {
+    .cv-header__name {
+        font-size: 1.3rem;
+    }
+    
+    .cv-header__photo,
+    .cv-header__photo-placeholder {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+    
+    .cv-toolbar {
+        padding: 8px 16px;
+    }
+    
+    .cv-toolbar a {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+    
+    .achievement-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 }
