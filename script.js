@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', function() {
             showToast(`✨ ${tag.innerText} ✨`);
         });
     });
-    
+
     // 10. BOTÓN PARA IMPRIMIR MEJORADO
     const printLinks = document.querySelectorAll('.cv-toolbar a[href*="print"]');
     printLinks.forEach(link => {
@@ -279,6 +279,5 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-    
-    console.log('⚽ CV Futbolístico cargado con éxito! ⚽');
+
 });
