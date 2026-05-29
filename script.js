@@ -268,5 +268,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // 10. BOTÓN PARA IMPRIMIR MEJORADO
+    const printLinks = document.querySelectorAll('.cv-toolbar a[href*="print"]');
+    printLinks.forEach(link => {
+        if (!link.getAttribute('data-print-enhanced')) {
+            link.setAttribute('data-print-enhanced', 'true');
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.print();
+            });
+        }
+    });
+    
     console.log('⚽ CV Futbolístico cargado con éxito! ⚽');
 });
